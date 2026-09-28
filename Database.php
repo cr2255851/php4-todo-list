@@ -10,15 +10,16 @@ class Database{
         $this->conn = null;
 
         try{
-            $this->conn new PDO(
+            $this->conn = new PDO(
                 "mysql:host=" .$this->host . "; dbname=" . $this->db_name,
                 $this->username,
                 $this->password
             );
-            this->conn->setAttribute(PDO:: ATT_ERMODE, PDO:: ERRMODE_EXCEPTION);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }catch(PDOException $exception) {
             echo "Error de conexion:" .$execetion->getMessage();
         }
+        return $this->conn;                
     }
 }
 ?>
