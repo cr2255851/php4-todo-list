@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["action"])) {
 if (isset($_GET["action"])) {
     if ($_GET["action"] == "toggle") {
         $task->id = $_GET["id"];
-        $task->id = $_GET["status"] == "1" ? 0 :1;
+        $task->completed = $_GET["status"] == "1" ? 0 :1;
         $task->toggleComplete();
     } elseif ($_GET["action"] == "delete"){
         $task->id = $_GET["id"];
